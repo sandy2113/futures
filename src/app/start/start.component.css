@@ -1,0 +1,38 @@
+.ibhead{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    /* // margin-left: -10%; */
+  }
+  
+  .HeadContainer{
+    background-color: transparent;
+  }
+  
+  .header{
+    width: 100%;
+    background-color: #004785;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: -60px;
+    text-align: center;
+  }
+  
+  .rtbImg{
+    width: 90px;
+    height: 70px;
+    margin-left: 2%;
+    border-radius: 5px;
+  }
+
+  .container {
+    max-width: 1280px;
+}
+
+.main{
+    background-color: #677cf9;
+    border-radius: 10px;
+    height: 600px;
+    margin-top: 1%;
+    padding: 2%;
+  }

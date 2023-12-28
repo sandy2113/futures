@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+body{
+    margin:0%;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    font-family: 'Roboto', sans-serif !important;
+    background: #b5d0ff !important;
+    padding-bottom: 40px;
+    height: auto;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+span {
+    line-height: normal;
+}
+
+.top_head_section {
+    background-color: #fff;
+    padding: 8px 0;
+    margin: 0;
+}
+  
+.clears:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+  
+.container {
+    max-width: 1280px;
+}
+  
+.top_head {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.top_left05 {
+    display: flex;
+    margin-left: 10%;
+}
