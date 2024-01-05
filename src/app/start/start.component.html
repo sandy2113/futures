@@ -11,24 +11,71 @@
     
     </div>
     <div class="row">
-      <div class="main" style="display: flex;">
-  
-        <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="main">
 
-            <h6 style="padding-left: 5%;
-            padding-top: 15%;
-            position: absolute;">Using the Bloomberg futures screen,answer the given questions</h6>
-            <h2 style="padding-top: 23%;
-            padding-left: 5%;
-            position: absolute;">Credit Derivative Quiz</h2>
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 rcards">
 
-            <button style="background-color: #00003A; color: white;position: absolute;
-            margin-top: 29%;
-            margin-left: 5%;" [routerLink]="['quiz']"> Start</button>
+          <img src="assets/arrow.png" class="arrow"/>
+
+          <div class="card">
+            <div class="head">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <span class="mtext">Futures Activity</span>
+          </div>
+
+          <div class="card">
+            <div class="head">
+              
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <span class="c2text">Take a look at the picture...</span>
+
+            <span class="c22text">There are 7 questions about it</span>
+          </div>
+
+          <div class="card">
+            <div class="head">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <span class="c3text">Buckle up, enjoy the visual ride, and let the questioning commence!</span>
+          </div>
+      </div>
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 lcards">
+        
+        <div class="card h-auto imgcard" >
+          <div class="head">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <img  src="assets/futures.png" alt="Quiz Image" class="zoomable-image"/>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
+
+        <div class="card" style="height: auto;">
+          <div class="head">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; padding: 20px 20px;">
+            <span class="c4text" style="font-weight: bold; font-size: 30px; font-family: Source Sans Pro Black, Source Sans Pro, _fb_;">Are you Ready?</span>
+            <button  class="button-34 mr-3" role="button" [routerLink]="['quiz']">Start</button>
+          </div>
 
         </div>
+        
+      </div>
   
       </div>
     </div>

@@ -30,9 +30,216 @@
 }
 
 .main{
-    background-color: #677cf9;
+  background-color: rgba(0, 71, 133, 0.5);
     border-radius: 10px;
     height: 600px;
     margin-top: 1%;
     padding: 2%;
+    display: flex; 
+    padding: 60px;
   }
+
+/* CSS */
+.button-34 {
+  background: #0c67ac;
+  border-radius: 999px;
+  box-shadow: #66a3d2 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  animation: shake 2s infinite;
+  width: 120px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 80% {
+    transform: translateX(-10px);
+  }
+  40%, 60% {
+    transform: translateX(10px);
+  }
+}
+
+/* start/ */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: 140px;
+  position: relative;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 35px;
+  border: none;
+}
+
+.head {
+  background-color: #004785;
+  display: flex;
+  align-items: center;
+  border-radius: 4px 4px 0 0;
+  height: 27px;
+  display: flex;
+  justify-content: end;
+}
+
+.dots {
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.imgcard:hover {
+  transform: scale(0.9);
+}
+
+.zoomable-image {
+  width: 100%;
+  height: auto;
+  cursor: default;
+  border-radius: 4px; 
+}
+
+.zoomable-image:hover {
+  cursor: zoom-in;
+}
+
+.arrow{
+  position: absolute;
+  z-index: 100;
+  left: 38%;
+  top: 34%;
+  height: 56px;
+  animation: moveTriangle 3s infinite;
+}
+
+@keyframes moveTriangle {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, 15px);
+  }
+  50% {
+    transform: translate(30px, 0);
+  }
+  75% {
+    transform: translate(15, -15);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.rcards{
+  padding:0 35px;
+}
+
+.lcards{
+  padding:0 70px;
+}
+
+.mtext{
+  font-weight: bold; 
+  font-size: 35px; 
+  font-family: Source Sans Pro Black, Source Sans Pro, _fb_;
+  padding-top: 32px;
+}
+
+.c2text{
+  font-size: 26px; 
+  font-weight: bold; 
+  padding-bottom: 10px;
+  padding-top: 10px; 
+  font-family: Source Sans Pro;
+}
+
+.c22text{
+  padding-top: 10px; 
+  font-weight: 600; 
+  font-size: 18px;
+}
+
+.c3text{
+  font-size: 18px; 
+  padding-bottom: 10px;
+  padding-top: 30px; 
+  font-family: Source Sans Pro;
+  padding-left: 10px; 
+  text-align: left;
+}
+
+.c4text{
+  font-weight: bold; 
+  font-size: 30px; 
+  font-family: Source Sans Pro Black, Source Sans Pro, _fb_;
+}
+
+@media (max-width: 767px) {
+
+  .main{
+    padding: 0%;
+  }
+
+  .mtext{
+    font-size: 18px;
+  }
+
+  .c22text{
+    font-size: 12px;
+  }
+
+  .c2text{
+    font-size: 14px;
+  }
+
+  .c3text{
+    font-size: 13px;
+  }
+
+  .c4text{
+    font-size: 16px;
+  }
+
+  .card{
+    margin-top: 33px;
+  }
+
+  .rcards{
+    padding:0 0px;
+  }
+  
+  .lcards{
+    padding:0 0px;
+  }
+  
+}

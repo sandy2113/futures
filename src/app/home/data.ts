@@ -11,4 +11,6 @@ export const quizData = {
     profitLoss: '',
     totalQuestions: 7,
     correctAnswers: 0,
+    isreview: false,
+    checkanswer: [] = [0, 0, 0, 0, 0, 0, 0],
   };

@@ -1,9 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild  } from '@angular/core';
 import { QuizService } from '../quiz.service';
 import { DownloadService } from '../download.service';
 import { quizData } from './data';
 
+import {
+  ApexNonAxisChartSeries,
+  ApexPlotOptions,
+  ApexChart,
+  ChartComponent,
+  ApexFill
+} from "ng-apexcharts";
 
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  labels: string[];
+  plotOptions: ApexPlotOptions;
+  fill: ApexFill
+};
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,7 +30,84 @@ export class HomeComponent implements OnInit {
   userResponses: { questionId: number, resultMessage: string }[] = [];
 
   
-  constructor(private quizService: QuizService,private downloadService: DownloadService) {}
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions:ChartOptions;
+
+  
+  constructor(private quizService: QuizService,private downloadService: DownloadService) {
+    this.showchart();
+    const correctAnswers = this.qdata.correctAnswers;
+    const calculatedPercentage = (correctAnswers * 100 / 7).toFixed(2); // Round to 2 decimal places
+const customDisplayValue = 42;
+    this.chartOptions = {
+      series: [parseFloat(calculatedPercentage)],
+      chart: {
+        height: 200,
+        type: "radialBar"
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: "60%"
+          }
+        }
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "vertical",
+          gradientToColors: ["#87D4F9"],
+          stops: [0, 100]
+        }
+      },
+      labels: ['Correct']
+    };
+  }
+
+  showchart(){
+    const correctAnswers = this.qdata.correctAnswers;
+    const calculatedPercentage = (correctAnswers * 100 / 7).toFixed(0); // Round to 2 decimal places
+const customDisplayValue = 42;
+    this.chartOptions = {
+      series: [parseFloat(calculatedPercentage)],
+      chart: {
+        height: 250,
+        type: "radialBar"
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            
+          }
+        }
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "vertical",
+          gradientToColors: ["#87D4F9"],
+          stops: [0, 100]
+        }
+      },
+      labels: ["Correct"]
+    };
+  }
+ 
+
+  isImageEnlarged = false;
+  isBackgroundBlurred = false;
+
+  enlargeImage() {
+    this.isImageEnlarged = true;
+    this.isBackgroundBlurred = true;
+  }
+
+  closeEnlargedView() {
+    this.isImageEnlarged = false;
+    this.isBackgroundBlurred = false;
+  }
 
   ngOnInit(): void {
     this.loadQuestion();
@@ -69,6 +160,8 @@ export class HomeComponent implements OnInit {
       this.qdata.userAnswer=this.qdata.userAnswers[0];
     }else if(this.currentQuestion.id === 2){
       this.qdata.userAnswer=this.qdata.userAnswers[1];
+    }else if(this.currentQuestion.id === 3){
+      this.qdata.userAnswer=this.qdata.userAnswers[2];
     }else if(this.currentQuestion.id === 4){
       this.qdata.userAnswer=this.qdata.userAnswers[3];
     }else if(this.currentQuestion.id === 5){
@@ -83,7 +176,7 @@ export class HomeComponent implements OnInit {
 
     console.log("dsfdcds")
     if (!this.qdata.userAnswer || this.qdata.userAnswer.trim() === '') {
-      this.qdata.resultMessage = 'Answer cannot be empty. Please provide a valid answer.';
+      this.qdata.resultMessage = 'Answer cannot be empty!';
       return;
     }
   
@@ -108,6 +201,7 @@ export class HomeComponent implements OnInit {
   }
   this.userResponses.push({ questionId: this.currentQuestion.id, resultMessage: this.qdata.resultMessage });
   console.log(this.userResponses)
+  this.showchart();
   }
 
 
@@ -147,6 +241,8 @@ export class HomeComponent implements OnInit {
 
     this.qdata.resultMessage = 'Correct Answer...!!';
     this.qdata.correctAnswers++;
+    this.qdata.checkanswer[questionId-1] = 1;
+    console.log(this.qdata.checkanswer)
     this.quizService.moveToNextQuestion();
   
     if (this.quizService.isQuizComplete()) {
@@ -189,9 +285,22 @@ export class HomeComponent implements OnInit {
     this.qdata.profitLoss = "";
     this.qdata.ans32 = "";
     this.qdata.userAnswers = [];
-
+    this.qdata.checkanswer= [0, 0, 0, 0, 0, 0, 0];
     this.userResponses = [];
 
+  }
+
+  // review(){
+  //   this.qdata.isreview= true;
+  //   this.qdata.quizComplete = false;
+  //   this.quizService.initializeQuiz();
+  //   this.loadQuestion();
+  //   console.log(this.qdata.resultMessage)
+  // }
+
+  isRedText() {
+    const firstLetter = this.qdata.resultMessage.charAt(0).toUpperCase();
+    return firstLetter === 'I' || firstLetter === 'A';
   }
 
   displayStoredResultMessage() {
